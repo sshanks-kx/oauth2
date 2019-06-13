@@ -1,2 +1,5 @@
 # oauth2
-OAuth2 kdb+
+
+Companion code to the blog post at
+
+https://kx.com/blog/oauth2-authorization-using-kdb/
