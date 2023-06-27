@@ -68,8 +68,8 @@ k).oauth2.hmb:{x:$[10=@x;x;1_$x];p:{$[#y;y;x]}/'getenv@+`$_:\("HTTP";"NO"),\:"_P
 .oauth2.refresh:{[state]
   u:.oauth2.state[state];
   p:.oauth2.provider u`provider;
-  0N!postdata:.oauth2.qs `refresh_token`client_id`client_secret`grant_type!(u`refresh_token; p`client_id; p`client_secret; `refresh_token);
-  0N!result0:.j.k .Q.hp[`$":",p`token_endpoint;"application/x-www-form-urlencoded";postdata];
+  postdata:.oauth2.qs `refresh_token`client_id`client_secret`grant_type!(u`refresh_token; p`client_id; p`client_secret; `refresh_token);
+  result0:.j.k .Q.hp[`$":",p`token_endpoint;"application/x-www-form-urlencoded";postdata];
   orig:.oauth2.state[state];
   new:cols[.oauth2.state]#@[orig;`state`access_token`expires_in`created;:;(state;result0`access_token;result0`expires_in;.z.p)];
   upsert[`.oauth2.state; new];
